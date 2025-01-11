@@ -1,0 +1,16 @@
+/* .link {
+	display: flex;
+	flex-direction: row;
+} */
+
+.link a {
+	border-radius: 4px;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	color: white;
+}
+
+.link .active {
+	background-color: #bcbcb7;
+	color: black;
+}
