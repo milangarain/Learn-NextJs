@@ -2,8 +2,8 @@ import { getSelectedNews } from "@/lib/news"
 import Image from "next/image";
 import Link from "next/link";
 
-export default function NewsDetails({params}) {
-	const news = getSelectedNews(params.slug);
+export default async function NewsDetails({params}) {
+	const news =await getSelectedNews(params.slug);
 	console.log(news);
 	return (
 		<div style={{marginTop: "2rem"}}>

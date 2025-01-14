@@ -2,9 +2,9 @@ import { getSelectedNews } from "@/lib/news";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export default function FullImage({ params }) {
+export default async function FullImage({ params }) {
   console.log(params);
-  const news = getSelectedNews(params.slug);
+  const news = await getSelectedNews(params.slug);
   console.log(news);
   // return (
   // 	<>
