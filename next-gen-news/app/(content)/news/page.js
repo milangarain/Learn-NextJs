@@ -13,7 +13,6 @@ export default async function AllNews() {
   // const [isFetching, setIsFetching] = useState(true);
   // const [error, setError] = useState(false);
   // const [allNews, setAllNews] = useState(null);
-
   // useEffect(() => {
   //   const fetchData = async () => {
   //     setIsFetching(true);
@@ -25,21 +24,15 @@ export default async function AllNews() {
   //     }
   //     const data = await response.json();
   //     setAllNews(data);
-  //     setIsFetching(false);
-      
+  //     setIsFetching(false);    
   //   }
-
   //   fetchData();
-
   // }, [])
 
    const allNews = await getAllNews();
 
   return (
     <>
-      {/* {!isFetching && allNews && <NewsList heading="News page" newsList={allNews} />}
-      {isFetching && <p>Loading. Please wait while we are retrieving data.</p>}
-      {error && <p>{error}</p>} */}
       <NewsList heading="News page" newsList={allNews} />
     </>
     
