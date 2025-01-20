@@ -34,3 +34,16 @@ const DUMMY_EVENTS = [
   export function getAllEvents() {
 	return DUMMY_EVENTS;
   }
+
+  export function getEventDetails(id) {
+	return DUMMY_EVENTS.find(event => event.id === id);
+  }
+  export function getEvents( month, year) {
+	const events = DUMMY_EVENTS.filter( event => {
+		const date = new Date(event.date);
+		return date.getMonth() === +month && date.getFullYear() === +year;
+	});
+	console.log(events);
+	// return DUMMY_EVENTS;
+	return events;
+  }

@@ -1,6 +1,15 @@
+import { useRouter } from "next/router";
+
 const EventFilter = () => {
+  const router = useRouter();
+  const searchEventHandler = (event) => {
+    event.preventDefault();
+    const year = event.target.elements['year'].value;
+    const month = event.target.elements['month'].value;
+    router.push(`/events/${year}/${month}`);
+  }
   return (
-    <form className="event-filter" onSubmit={() => {}}>
+    <form className="event-filter" onSubmit={searchEventHandler}>
       <div>
         <label htmlFor="year">Year</label>
         <input
