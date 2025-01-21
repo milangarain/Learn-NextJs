@@ -1,19 +1,15 @@
-'use client';
+import ModalBackdrop from "@/components/news/modal-backdrop";
 import { getSelectedNews } from "@/lib/news";
-import { useRouter } from "next/navigation";
-// import Image from "next/image";
+import { notFound } from "next/navigation";
 
-export default function FullImage({ params }) {
-//   console.log(params);
-  const news = getSelectedNews(params.slug);
-//   console.log(news);
+export default async function FullImage({ params }) {
+  const news = await getSelectedNews(params.slug);
   if (!news) {
 	notFound();
   }
-  const router = useRouter();
   return (
   	<>
-  		<div className="modal-backdrop" onClick={router.back}></div>
+		<ModalBackdrop />
   		<dialog className="modal" open>
   			<div className="fullscreen-image">
   				<img src={`/images/news/${news.image}`} alt={news.title} />
@@ -21,14 +17,4 @@ export default function FullImage({ params }) {
   		</dialog>
   	</>
   )
-
-//   if (!news) {
-// 	notFound();
-//   }
-
-//   return (
-// 	<div className="fullscreen-image">
-// 	  <img src={`/images/news/${news.image}`} alt={news.title} />
-// 	</div>
-//   );
 }
